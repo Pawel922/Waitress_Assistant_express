@@ -4,4 +4,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header
+      h1 Waitress Assistant
+      nav
+        ul 
+          li
+            a(href="/") Tables
+          li
+            a(href="/") Menu
+          li
+            a(href="/") Summary 
+    main 
+      block content
+    footer
+      p Created by Pawel Wozniak
