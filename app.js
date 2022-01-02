@@ -1,12 +1,23 @@
 var createError = require('http-errors');
 var express = require('express');
+var mongoose = require('mongoose');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 
-var app = express()
+var app = express();
+
+// create connection to database
+mongoose.connect("mongodb://localhost:27017/restaurant", {useNewUrlParser: true});
+mongoose.connection.on("error", function(err) {
+  console.log("MongoDB connection error: ", err)
+});
+
+mongoose.connection.on("connected", function(err, res) {
+  console.log("MongoDB is connected")
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
