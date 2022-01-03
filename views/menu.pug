@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+
+    h1 Menu 
+
+    ul 
+        each dish in dishes
+            li #{dish.name} - #{dish.price} 
+                br   
+                a(href='/') Edit 
+                br
+                a(href='/') Delete
+                hr
+        else 
+            li There are no items in menu. 
